@@ -1,0 +1,36 @@
+1. Blue Shades
+Shade	Hex Code
+Light Blue	#ADD8E6
+Sky Blue	#87CEEB
+Dodger Blue	#1E90FF
+Royal Blue	#4169E1
+Navy	#000080
+Teal Blue	#4682B4
+Deep Blue	#003366
+2. Green Shades
+Shade	Hex Code
+Mint Green	#98FF98
+Light Green	#90EE90
+Lime Green	#32CD32
+Emerald	#50C878
+Sea Green	#2E8B57
+Forest Green	#228B22
+Olive	#808000
+3. Gray Shades
+Shade	Hex Code
+Light Gray	#D3D3D3
+Silver	#C0C0C0
+Cool Gray	#A9A9A9
+Slate Gray	#708090
+Charcoal	#36454F
+Dim Gray	#696969
+Blackish Gray	#2F2F2F
+4. Close Colors (Blue-Green & Blue-Gray Tones)
+Shade	Hex Code
+Aqua	#00FFFF
+Turquoise	#40E0D0
+Cyan	#00BFFF
+Teal	#008080
+Steel Blue	#4682B4
+Cadet Blue	#5F9EA0
+Deep Sea Blue	#004F6D
