@@ -156,7 +156,7 @@ const About = () => {
                 {/* === Stats Section === */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
                     <div className="card text-center">
-                        <div className="text-4xl font-bold text-blue-600 mb-2">2+</div>
+                        <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
                         <div className="text-gray-600 dark:text-gray-400">
                             Years Experience
                         </div>
