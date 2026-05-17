@@ -328,7 +328,7 @@ const About = () => {
 
                 <div className="flex items-center">
                   <i className="bx bx-envelope text-blue-600 mr-2"></i>
-                  <span>williamsisulu2003@gmail.com</span>
+                  <span>info@williamwritescode.com</span>
                 </div>
 
                 <div className="flex items-center">
@@ -370,7 +370,7 @@ const About = () => {
                 </a>
 
                 <a
-                  href="mailto:williamsisulu2003@gmail.com"
+                  href="mailto:info@williamwritescode.com"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   <i className="bx bx-envelope text-2xl"></i>

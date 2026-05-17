@@ -18,6 +18,8 @@ const CALENDLY_URL = "https://calendly.com/williamsisulu2003/30min";
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [consultationType, setConsultationType] = useState("calendly");
+  const [isSendingRequest, setIsSendingRequest] = useState(false);
+
   const [inPersonForm, setInPersonForm] = useState({
     name: "",
     email: "",
@@ -370,6 +372,10 @@ const Services = () => {
   const handleInPersonSubmit = (event) => {
     event.preventDefault();
 
+    if (isSendingRequest) return;
+
+    setIsSendingRequest(true);
+
     const subject = encodeURIComponent("In-Person Consultation Request");
 
     const body = encodeURIComponent(
@@ -390,7 +396,10 @@ ${inPersonForm.message}
 Thank you.`
     );
 
-    window.location.href = `mailto:williamsisulu2003@gmail.com?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      window.location.href = `mailto:info@williamwritescode.com?subject=${subject}&body=${body}`;
+      setIsSendingRequest(false);
+    }, 700);
   };
 
   const consultationModal = (
@@ -460,7 +469,9 @@ Thank you.`
                       </div>
 
                       <div>
-                        <h4 className="font-semibold">In-Person Consultation</h4>
+                        <h4 className="font-semibold">
+                          In-Person Consultation
+                        </h4>
                         <p className="text-sm text-blue-50">
                           Send a request with your preferred date, time, and
                           location.
@@ -672,10 +683,22 @@ Thank you.`
 
                     <button
                       type="submit"
-                      className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700"
+                      disabled={isSendingRequest}
+                      className={`mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 disabled:hover:scale-100 ${
+                        isSendingRequest ? "cursor-not-allowed opacity-80" : ""
+                      }`}
                     >
-                      Send In-Person Request
-                      <i className="bx bx-send ml-2 text-xl"></i>
+                      {isSendingRequest ? (
+                        <>
+                          <i className="bx bx-loader-alt bx-spin mr-2 text-xl"></i>
+                          Preparing Email...
+                        </>
+                      ) : (
+                        <>
+                          Send In-Person Request
+                          <i className="bx bx-send ml-2 text-xl"></i>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

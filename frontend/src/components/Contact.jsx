@@ -30,6 +30,9 @@ const Contact = () => {
     message: "",
   });
 
+  const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const [isSendingRequest, setIsSendingRequest] = useState(false);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [consultationType, setConsultationType] = useState("calendly");
 
@@ -91,6 +94,8 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (isSendingMessage) return;
+
     const missingFields =
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -104,6 +109,8 @@ const Contact = () => {
       });
       return;
     }
+
+    setIsSendingMessage(true);
 
     const emailSubject = encodeURIComponent(
       `${formData.subject} - Message from ${formData.name}`
@@ -125,25 +132,33 @@ ${formData.message}
 Thank you.`
     );
 
-    window.location.href = `mailto:williamsisulu2003@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    setTimeout(() => {
+      window.location.href = `mailto:info@williamwritescode.com?subject=${emailSubject}&body=${emailBody}`;
 
-    setFormStatus({
-      type: "success",
-      message:
-        "Your email app has been opened with the message ready to send.",
-    });
+      setFormStatus({
+        type: "success",
+        message:
+          "Your email app has been opened with the message ready to send.",
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "Project Inquiry",
-      message: "",
-    });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "Project Inquiry",
+        message: "",
+      });
+
+      setIsSendingMessage(false);
+    }, 700);
   };
 
   const handleInPersonSubmit = (event) => {
     event.preventDefault();
+
+    if (isSendingRequest) return;
+
+    setIsSendingRequest(true);
 
     const subject = encodeURIComponent("In-Person Consultation Request");
 
@@ -165,17 +180,21 @@ ${inPersonForm.message}
 Thank you.`
     );
 
-    window.location.href = `mailto:williamsisulu2003@gmail.com?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      window.location.href = `mailto:info@williamwritescode.com?subject=${subject}&body=${body}`;
 
-    setInPersonForm({
-      name: "",
-      email: "",
-      phone: "",
-      preferredDate: "",
-      preferredTime: "",
-      location: "",
-      message: "",
-    });
+      setInPersonForm({
+        name: "",
+        email: "",
+        phone: "",
+        preferredDate: "",
+        preferredTime: "",
+        location: "",
+        message: "",
+      });
+
+      setIsSendingRequest(false);
+    }, 700);
   };
 
   const consultationModal = (
@@ -458,10 +477,22 @@ Thank you.`
 
                     <button
                       type="submit"
-                      className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 sm:text-base"
+                      disabled={isSendingRequest}
+                      className={`mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 disabled:hover:scale-100 sm:text-base ${
+                        isSendingRequest ? "cursor-not-allowed opacity-80" : ""
+                      }`}
                     >
-                      Send In-Person Request
-                      <i className="bx bx-send ml-2 text-xl"></i>
+                      {isSendingRequest ? (
+                        <>
+                          <i className="bx bx-loader-alt bx-spin mr-2 text-xl"></i>
+                          Preparing Email...
+                        </>
+                      ) : (
+                        <>
+                          Send In-Person Request
+                          <i className="bx bx-send ml-2 text-xl"></i>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}
@@ -480,7 +511,6 @@ Thank you.`
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
-
           <h2 className="section-title mt-5">Get In Touch</h2>
 
           <p className="mt-4 text-base text-gray-600 dark:text-gray-400 sm:text-lg">
@@ -514,10 +544,10 @@ Thank you.`
                     </p>
 
                     <a
-                      href="mailto:williamsisulu2003@gmail.com"
+                      href="mailto:info@williamwritescode.com"
                       className="break-words text-blue-600 hover:underline dark:text-blue-400"
                     >
-                      williamsisulu2003@gmail.com
+                      info@williamwritescode.com
                     </a>
                   </div>
                 </div>
@@ -750,10 +780,22 @@ Thank you.`
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 sm:text-base"
+                disabled={isSendingMessage}
+                className={`inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 disabled:hover:scale-100 sm:text-base ${
+                  isSendingMessage ? "cursor-not-allowed opacity-80" : ""
+                }`}
               >
-                Send Message
-                <i className="bx bx-send ml-2 text-xl"></i>
+                {isSendingMessage ? (
+                  <>
+                    <i className="bx bx-loader-alt bx-spin mr-2 text-xl"></i>
+                    Preparing Email...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <i className="bx bx-send ml-2 text-xl"></i>
+                  </>
+                )}
               </button>
             </form>
           </div>
