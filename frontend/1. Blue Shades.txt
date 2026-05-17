@@ -34,3 +34,19 @@ Teal	#008080
 Steel Blue	#4682B4
 Cadet Blue	#5F9EA0
 Deep Sea Blue	#004F6D
+
+| Use                              |       Hex |             RGB |
+| -------------------------------- | --------: | --------------: |
+| Dark navy / “William”            | `#2D3045` |    `45, 48, 69` |
+| Deep blue / “writes” + code mark | `#0849A3` |    `8, 73, 163` |
+| Secondary blue shade             | `#174882` |   `23, 72, 130` |
+| Green / code mark                | `#4AA565` |  `74, 165, 101` |
+| Black / `[code]` text            | `#000000` |       `0, 0, 0` |
+| White background                 | `#FFFFFF` | `255, 255, 255` |
+
+Hero name stagger animation
+Role pills pop animation
+Skills icons reveal animation
+Slow video zoom
+Smooth scroll indicator
+Subtle parallax on amoeba SVG

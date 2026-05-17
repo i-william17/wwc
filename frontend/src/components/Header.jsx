@@ -1,5 +1,6 @@
 // components/Header.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-me-1.png";
 
 const Header = ({ darkMode, toggleDarkMode }) => {
@@ -11,60 +12,87 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#education", label: "Education" },
-    { href: "#certifications", label: "Certifications" },
-    { href: "#contact", label: "Contact" }
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/pricing", label: "Pricing" },
+    { to: "/contact", label: "Contact" },
   ];
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const getDesktopLinkClass = ({ isActive }) =>
+    `relative transition-colors group ${
+      isActive
+        ? "text-blue-600 dark:text-blue-400"
+        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+    }`;
+
+  const getMobileLinkClass = ({ isActive }) =>
+    `transition-colors py-2 ${
+      isActive
+        ? "text-blue-600 dark:text-blue-400"
+        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+    }`;
+
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-2' 
-          : 'bg-transparent py-4'
+        isScrolled
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo with dark mode inversion */}
-        <div className="text-xl font-bold text-blue-600">
-          <img 
-            src={logo} 
-            alt="William Odhiambo" 
+        {/* Logo */}
+        <Link
+          to="/"
+          onClick={closeMobileMenu}
+          className="text-xl font-bold text-blue-600"
+          aria-label="Go to homepage"
+        >
+          <img
+            src={logo}
+            alt="William Odhiambo"
             className={`w-36 h-auto transition-all duration-500 ${
-              isScrolled ? 'h-10' : 'h-12'
-            } ${darkMode ? 'filter invert brightness-0' : ''}`}
+              isScrolled ? "h-10" : "h-12"
+            } ${darkMode ? "filter invert brightness-0" : ""}`}
           />
-        </div>
-        
+        </Link>
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 lg:space-x-8">
           {navItems.map((item, index) => (
-            <a 
-              key={index}
-              href={item.href}
-              className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            <NavLink key={index} to={item.to} className={getDesktopLinkClass}>
+              {({ isActive }) => (
+                <>
+                  {item.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </>
+              )}
+            </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center space-x-4">
           {/* Dark Mode Toggle */}
-          <button 
+          <button
             onClick={toggleDarkMode}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-all duration-300 hover:scale-110"
             aria-label="Toggle dark mode"
+            type="button"
           >
             {darkMode ? (
               <i className="bx bx-sun text-xl"></i>
@@ -74,32 +102,37 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           </button>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle mobile menu"
+            type="button"
           >
-            <i className={`bx ${isMobileMenuOpen ? 'bx-x' : 'bx-menu'} text-xl`}></i>
+            <i
+              className={`bx ${
+                isMobileMenuOpen ? "bx-x" : "bx-menu"
+              } text-xl`}
+            ></i>
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div 
+      <div
         className={`md:hidden bg-white dark:bg-gray-900 transition-all duration-500 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 py-4' : 'max-h-0 py-0'
+          isMobileMenuOpen ? "max-h-96 py-4 shadow-lg" : "max-h-0 py-0"
         }`}
       >
         <div className="container mx-auto px-6 flex flex-col space-y-4">
           {navItems.map((item, index) => (
-            <a 
+            <NavLink
               key={index}
-              href={item.href}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              to={item.to}
+              className={getMobileLinkClass}
+              onClick={closeMobileMenu}
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </div>
       </div>
