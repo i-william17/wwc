@@ -155,10 +155,6 @@ const BestWorksCarousel = ({
       <div className="container relative z-10 mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-white/80 px-4 py-2 text-sm font-medium text-blue-600 shadow-sm backdrop-blur-md dark:bg-white/5 dark:text-blue-300">
-            <i className="bx bx-briefcase-alt-2 text-lg"></i>
-            Selected Portfolio Highlights
-          </span>
 
           <h2 className="mt-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
             {title}

@@ -480,10 +480,6 @@ Thank you.`
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 shadow-sm dark:bg-blue-950/30 dark:text-blue-300">
-            <i className="bx bx-message-square-detail text-lg"></i>
-            Contact Me
-          </span>
 
           <h2 className="section-title mt-5">Get In Touch</h2>
 
