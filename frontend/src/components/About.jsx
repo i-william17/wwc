@@ -393,7 +393,7 @@ const About = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12"
           >
             <div className="about-stat-card card text-center will-change-transform">
-              <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">4+</div>
               <div className="text-gray-600 dark:text-gray-400">
                 Years Experience
               </div>
