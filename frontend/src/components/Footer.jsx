@@ -49,7 +49,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="mailto:williamsisulu2003@gmail.com"
+              href="mailto:info@williamwritescode.com"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="Email"
             >
