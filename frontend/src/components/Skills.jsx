@@ -5,6 +5,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const hardSkills = [
+  { name: "Cybersecurity", level: 90 },
+  { name: "Mobile App Development", level: 90 },
+  { name: "Web Development", level: 95 },
+  { name: "React", level: 90 },
+  { name: "Node.js", level: 85 },
+  { name: "Python", level: 80 },
+  { name: "JavaScript", level: 95 },
+  { name: "MongoDB", level: 85 },
+  { name: "RESTful APIs", level: 90 },
+  { name: "UI/UX Design", level: 80 },
+  { name: "Git & GitHub", level: 90 },
+  { name: "ROS (Robot OS)", level: 75 },
+];
+
 const Skills = () => {
   const skillsRef = useRef(null);
   const stairsRef = useRef(null);
@@ -12,21 +27,6 @@ const Skills = () => {
   const headerRef = useRef(null);
   const technicalCardRef = useRef(null);
   const professionalCardRef = useRef(null);
-
-  const hardSkills = [
-    { name: "Cybersecurity", level: 90 },
-    { name: "Mobile App Development", level: 90 },
-    { name: "Web Development", level: 95 },
-    { name: "React", level: 90 },
-    { name: "Node.js", level: 85 },
-    { name: "Python", level: 80 },
-    { name: "JavaScript", level: 95 },
-    { name: "MongoDB", level: 85 },
-    { name: "RESTful APIs", level: 90 },
-    { name: "UI/UX Design", level: 80 },
-    { name: "Git & GitHub", level: 90 },
-    { name: "ROS (Robot OS)", level: 75 },
-  ];
 
   const professionalSkills = [
     "Project Coordination",
