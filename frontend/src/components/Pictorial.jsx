@@ -314,7 +314,6 @@ const Pictorial = () => {
 
     resizeCanvas();
 
-    const rect = hero.getBoundingClientRect();
     pointerRef.current.x = width * 0.68;
     pointerRef.current.y = height * 0.42;
     pointerRef.current.targetX = width * 0.68;
@@ -337,7 +336,6 @@ const Pictorial = () => {
         cancelAnimationFrame(animationFrame);
       }
 
-      const _unused = rect;
     };
   }, []);
 
