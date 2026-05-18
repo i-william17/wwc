@@ -326,29 +326,29 @@ const QuickChatTerminal = () => {
   return (
     <section
       id="quick-chat"
-      className="relative overflow-hidden bg-white py-20 text-gray-900 dark:bg-gray-950 dark:text-white"
+      className="relative overflow-hidden bg-white py-14 text-gray-900 dark:bg-gray-950 dark:text-white sm:py-16 md:py-20"
     >
       {/* Background atmosphere */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-400/10" />
-        <div className="absolute -left-28 bottom-20 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-400/10" />
-        <div className="absolute -right-28 top-40 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl dark:bg-cyan-400/10" />
+        <div className="absolute left-1/2 top-0 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-400/10 sm:h-[520px] sm:w-[520px]" />
+        <div className="absolute -left-28 bottom-20 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-400/10 sm:h-80 sm:w-80" />
+        <div className="absolute -right-28 top-40 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl dark:bg-cyan-400/10 sm:h-80 sm:w-80" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.06)_1px,transparent_1px)] bg-[size:44px_44px] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:32px_32px] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] sm:bg-[size:44px_44px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16 xl:gap-20">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16 xl:gap-20">
           {/* LEFT CONTENT */}
-          <div>
-            <h2 className="mt-6 max-w-3xl text-4xl font-black leading-tight tracking-tight text-gray-950 dark:text-white sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
+          <div className="min-w-0">
+            <h2 className="mt-2 max-w-3xl text-3xl font-black leading-tight tracking-tight text-gray-950 dark:text-white xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
               Explore portfolio
               <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
                 like a terminal.
               </span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-lg xl:text-xl">
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base md:text-lg lg:text-lg xl:text-xl">
               In a hurry? Use the command window to quickly query what you want
               to know — skills, projects, pricing, services, experience,
               education, certifications, contact details, and more.
@@ -356,26 +356,26 @@ const QuickChatTerminal = () => {
           </div>
 
           {/* TERMINAL */}
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] blur-2xl" />
+          <div className="relative min-w-0">
+            <div className="absolute -inset-2 rounded-[1.5rem] blur-2xl sm:-inset-4 sm:rounded-[2rem]" />
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-950 shadow-2xl shadow-blue-950/20 dark:border-gray-800">
+            <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-950 shadow-2xl shadow-blue-950/20 dark:border-gray-800 sm:rounded-[2rem]">
               {/* Terminal top bar */}
-              <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.04] px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-500" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                  <span className="h-3 w-3 rounded-full bg-green-500" />
+              <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-white/[0.04] px-3 py-3 sm:px-4">
+                <div className="flex shrink-0 items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-500 sm:h-3 sm:w-3" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-400 sm:h-3 sm:w-3" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-500 sm:h-3 sm:w-3" />
                 </div>
 
-                <div className="hidden text-xs font-medium text-gray-400 sm:block">
+                <div className="min-w-0 truncate text-[10px] font-medium text-gray-400 sm:text-xs">
                   @william-writes-code
                 </div>
 
                 <button
                   type="button"
                   onClick={() => runCommand("/clear")}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-gray-300 transition hover:border-red-400/50 hover:text-red-300"
+                  className="shrink-0 rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-medium text-gray-300 transition hover:border-red-400/50 hover:text-red-300 sm:px-3 sm:text-xs"
                 >
                   clear
                 </button>
@@ -385,22 +385,29 @@ const QuickChatTerminal = () => {
               <div
                 ref={terminalBodyRef}
                 onClick={() => inputRef.current?.focus()}
-                className="h-[560px] cursor-text overflow-y-auto px-4 py-5 font-mono text-sm leading-relaxed text-gray-200 sm:px-6"
+                className="h-[430px] cursor-text overflow-y-auto px-3 py-4 font-mono text-[12px] leading-relaxed text-gray-200 sm:h-[500px] sm:px-5 sm:py-5 sm:text-sm md:h-[560px] md:px-6"
               >
                 <div className="space-y-2">
                   {lines.map((line, index) => {
                     if (line.type === "command") {
                       return (
-                        <div key={index} className="flex flex-wrap gap-2">
-                          <span className="text-cyan-400">{prompt}</span>
-                          <span className="text-white">{line.text}</span>
+                        <div
+                          key={index}
+                          className="flex min-w-0 flex-wrap gap-x-2 gap-y-1"
+                        >
+                          <span className="break-all text-cyan-400">
+                            {prompt}
+                          </span>
+                          <span className="break-all text-white">
+                            {line.text}
+                          </span>
                         </div>
                       );
                     }
 
                     if (line.type === "system") {
                       return (
-                        <div key={index} className="text-purple-300">
+                        <div key={index} className="break-words text-purple-300">
                           {line.text}
                         </div>
                       );
@@ -409,14 +416,15 @@ const QuickChatTerminal = () => {
                     return (
                       <div
                         key={index}
-                        className={`whitespace-pre-wrap ${line.text.startsWith(">")
-                          ? "pt-3 font-bold text-blue-300"
-                          : line.text.startsWith("---")
+                        className={`whitespace-pre-wrap break-words ${
+                          line.text.startsWith(">")
+                            ? "pt-3 font-bold text-blue-300"
+                            : line.text.startsWith("---")
                             ? "text-gray-600"
                             : line.text === ""
-                              ? "h-2"
-                              : "text-gray-300"
-                          }`}
+                            ? "h-2"
+                            : "text-gray-300"
+                        }`}
                       >
                         {line.text}
                       </div>
@@ -432,8 +440,14 @@ const QuickChatTerminal = () => {
 
                   {/* Inline terminal input */}
                   <form onSubmit={handleSubmit} className="pt-2">
-                    <div className="flex min-w-0 items-center gap-2">
-                      <span className="shrink-0 text-cyan-400">{prompt}</span>
+                    <div className="flex min-w-0 items-start gap-2 sm:items-center">
+                      <span className="hidden shrink-0 break-all text-cyan-400 sm:inline">
+                        {prompt}
+                      </span>
+
+                      <span className="shrink-0 text-cyan-400 sm:hidden">
+                        $
+                      </span>
 
                       <input
                         ref={inputRef}
@@ -442,8 +456,8 @@ const QuickChatTerminal = () => {
                         disabled={isTyping}
                         onChange={(event) => setInputValue(event.target.value)}
                         onKeyDown={handleKeyDown}
-                        placeholder="Type /help, /skills, /projects..."
-                        className="min-w-0 flex-1 bg-transparent font-mono text-sm text-white outline-none placeholder:text-gray-600 disabled:cursor-not-allowed"
+                        placeholder="Type /help..."
+                        className="min-w-0 flex-1 bg-transparent font-mono text-[12px] text-white outline-none placeholder:text-gray-600 disabled:cursor-not-allowed sm:text-sm"
                         autoComplete="off"
                       />
 
@@ -461,22 +475,22 @@ const QuickChatTerminal = () => {
               </div>
 
               {/* Quick command chips */}
-              <div className="border-t border-white/10 bg-white/[0.03] px-4 py-4 sm:px-6">
-                <div className="mb-4 flex flex-wrap gap-2">
+              <div className="border-t border-white/10 bg-white/[0.03] px-3 py-3 sm:px-5 sm:py-4 md:px-6">
+                <div className="mb-3 flex max-h-24 flex-wrap gap-2 overflow-y-auto pr-1 sm:mb-4 sm:max-h-none sm:overflow-visible">
                   {quickCommands.map((command) => (
                     <button
                       key={command}
                       type="button"
                       disabled={isTyping}
                       onClick={() => runCommand(command)}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-xs text-gray-300 transition hover:border-blue-400/50 hover:bg-blue-500/10 hover:text-blue-300 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1.5 font-mono text-[10px] text-gray-300 transition hover:border-blue-400/50 hover:bg-blue-500/10 hover:text-blue-300 disabled:cursor-not-allowed disabled:opacity-50 sm:px-3 sm:text-xs"
                     >
                       {command}
                     </button>
                   ))}
                 </div>
 
-                <p className="mt-3 text-xs text-gray-500">
+                <p className="mt-2 text-[10px] leading-relaxed text-gray-500 sm:mt-3 sm:text-xs">
                   Tip: use Arrow Up / Arrow Down to navigate command history.
                 </p>
               </div>
