@@ -22,6 +22,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/pricing", label: "Pricing" },
+    { to: "/pictorial", label: "Pictorial" },
     { to: "/contact", label: "Contact" },
   ];
 

@@ -18,6 +18,7 @@ import GooeyCursor from "./components/GooeyCursor";
 import Home from "./screens/Home";
 import AboutScreen from "./screens/AboutScreen";
 import PricingScreen from "./screens/PricingScreen";
+import PictorialScreen from "./screens/PictorialScreen";
 import ContactScreen from "./screens/ContactScreen";
 
 import "./App.css";
@@ -92,6 +93,7 @@ const AppLayout = ({ darkMode, toggleDarkMode }) => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/pricing" element={<PricingScreen />} />
+          <Route path="/pictorial" element={<PictorialScreen />} />
           <Route path="/contact" element={<ContactScreen />} />
         </Routes>
       </main>
